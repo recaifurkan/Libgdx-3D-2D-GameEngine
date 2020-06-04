@@ -3,7 +3,7 @@ package com.rfbsoft.game;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.ai.msg.MessageManager;
 
-public class GameInput implements InputProcessor {
+public class ClientGameInput implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {

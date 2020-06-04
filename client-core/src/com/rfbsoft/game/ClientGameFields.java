@@ -13,32 +13,12 @@ import org.recast4j.detour.NavMesh;
 
 public class ClientGameFields {
     private static final String TAG = "com.rfbsoft.game.GameFields";
-    public static CameraInputController camController;
-    public static Camera cam;
-    public static SpriteBatch debugBatch;
-    public static GameEngine gameEngine;
-    public static AssetManager assetManager;
-    public static ClientGameInitializer.GameType systemType = ClientGameInitializer.GameType.G3D;
-    public static boolean DEBUG = true;
+
 
     static {
 
 
-        debugBatch = new SpriteBatch();
-        gameEngine = new GameEngine();
-        assetManager = new AssetManager();
-        assetManager.setLoader(
-                String.class,
-                new TextFileLoader(
-                        new InternalFileHandleResolver()
-                )
-        );
-        assetManager.setLoader(
-                NavMesh.class,
-                new NavMeshLoader(
-                        new InternalFileHandleResolver()
-                )
-        );
+
 
         Gdx.app
                 .debug(TAG, "GameFields initialized");

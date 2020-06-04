@@ -27,6 +27,7 @@ public class GameFields {
 
     public static ModelBatch modelBatch;
     public static Environment environment;
+    public static GameType systemType = GameType.G3D;
 
     static {
 
@@ -57,6 +58,13 @@ public class GameFields {
 
         Gdx.app
                 .debug(TAG, "GameFields initialized");
+
+    }
+
+    public enum GameType {
+        G2D,
+        G3D
+
 
     }
 }

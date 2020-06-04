@@ -12,7 +12,7 @@ public class ClientGameInitializer implements Disposable {
     IGameSystemsCreator gameSystem;
 
     public ClientGameInitializer() {
-        if (ClientGameFields.systemType == GameType.G2D) {
+        if (GameFields.systemType == GameFields.GameType.G2D) {
             gameSystem = new G2dGameSystems();
             new G2dEntites();
         } else {
@@ -29,11 +29,6 @@ public class ClientGameInitializer implements Disposable {
     }
 
 
-    public enum GameType {
-        G2D,
-        G3D
 
-
-    }
 
 }
