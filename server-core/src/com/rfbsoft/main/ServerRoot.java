@@ -6,10 +6,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.rfbsoft.screens.GameScreen;
 
-public class Root extends Game {
+public class ServerRoot extends Game {
     final static String TAG = "com.rfbsoft.main.Root";
 
-    public static boolean DEBUG = true;
+
 
 
     @Override

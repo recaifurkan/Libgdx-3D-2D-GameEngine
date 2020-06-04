@@ -22,9 +22,9 @@ public class BulletRigidInitializer extends BulletInitilizer {
         } else {
             localInertia.set(0, 0, 0);
         }
-        BulletCollisionComponent.MotionState motionState = new BulletCollisionComponent.MotionState(transform);
+//        BulletCollisionComponent.MotionState motionState = new BulletCollisionComponent.MotionState(transform);
         btRigidBody.btRigidBodyConstructionInfo bodyInfo = new
-                btRigidBody.btRigidBodyConstructionInfo(mass, motionState, collisionShape, localInertia);
+                btRigidBody.btRigidBodyConstructionInfo(mass, null, collisionShape, localInertia);
         rigidBody = new btRigidBody(bodyInfo);
         rigidBody.setWorldTransform(transform);
         bulletRigidBodyComponent = new BulletRigidBodyComponent(rigidBody);

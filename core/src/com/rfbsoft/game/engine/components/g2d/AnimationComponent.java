@@ -1,14 +1,9 @@
 package com.rfbsoft.game.engine.components.g2d;
 
 import com.badlogic.ashley.core.Component;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g3d.utils.AnimationController;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class AnimationComponent implements Component {
     public static class AnimationController{
@@ -84,7 +79,7 @@ public class AnimationComponent implements Component {
 //
 //    }
 
-    public AnimationComponent(AnimationComponent.Animation... animations) {
+    public AnimationComponent(Animation... animations) {
         animationController = new AnimationController(animations);
 
 

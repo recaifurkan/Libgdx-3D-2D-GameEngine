@@ -1,6 +1,5 @@
 package com.rfbsoft.game.engine.entites.initializers.g2d;
 
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.rfbsoft.game.engine.components.g2d.AnimationComponent;
 import com.rfbsoft.game.engine.entites.GameEntity;
 import com.rfbsoft.game.engine.entites.initializers.IEntityInitializer;

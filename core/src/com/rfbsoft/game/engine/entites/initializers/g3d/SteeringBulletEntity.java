@@ -212,7 +212,7 @@ public class SteeringBulletEntity implements Steerable<Vector3> {
 
     @Override
     public Vector3 getPosition() {
-        body.getMotionState().getWorldTransform(tmpMatrix4);
+        Matrix4 tmpMatrix4=body.getWorldTransform();
         return tmpMatrix4.getTranslation(tmpVector3);
     }
 

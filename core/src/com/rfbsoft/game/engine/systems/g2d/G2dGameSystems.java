@@ -4,7 +4,6 @@ import com.rfbsoft.game.GameFields;
 import com.rfbsoft.game.engine.systems.IGameSystemsCreator;
 import com.rfbsoft.game.engine.systems.g2d.debug.DebugBox2DSystem;
 import com.rfbsoft.game.engine.systems.g2d.debug.G2dDebugInfoSystem;
-import com.rfbsoft.main.Root;
 
 public class G2dGameSystems implements IGameSystemsCreator {
 
@@ -27,7 +26,7 @@ public class G2dGameSystems implements IGameSystemsCreator {
                 , animationSystem
                 , box2DSystem
         );
-        if (Root.DEBUG)
+        if (GameFields.DEBUG)
             GameFields.gameEngine.addSystems(
                     debugBox2DSystem,
                     g2dDebugInfoSystem,

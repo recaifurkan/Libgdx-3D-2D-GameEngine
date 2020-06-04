@@ -3,18 +3,21 @@ package com.rfbsoft.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.physics.bullet.Bullet;
 import com.rfbsoft.Settings;
 import com.rfbsoft.assets.Assets;
 import com.rfbsoft.game.GameFields;
-import com.rfbsoft.game.GameInitializer;
+import com.rfbsoft.game.ServerGameInitializer;
 import com.rfbsoft.game.GameInput;
 
 public class GameScreen implements Screen {
     private static final String TAG = "com.rfbsoft.factories.EntityFactory";
+    public final Color backgroundColor = new Color(100 / 255f, 149 / 255f, 237 / 255f, 1f);
 
 
-    GameInitializer systems;
+    ServerGameInitializer systems;
 
     @Override
     public void show() {
@@ -24,7 +27,7 @@ public class GameScreen implements Screen {
         Assets.load();
 
 
-        systems = new GameInitializer();
+        systems = new ServerGameInitializer();
 
 
         GameInput gameInput = new GameInput();
@@ -39,6 +42,8 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        Gdx.gl.glClearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
         GameFields.gameEngine.update(delta);
 

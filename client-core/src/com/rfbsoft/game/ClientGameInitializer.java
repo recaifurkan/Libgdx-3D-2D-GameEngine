@@ -8,11 +8,11 @@ import com.rfbsoft.game.engine.systems.g2d.G2dGameSystems;
 import com.rfbsoft.game.engine.systems.g3d.G3dGameSystems;
 
 
-public class GameInitializer implements Disposable {
+public class ClientGameInitializer implements Disposable {
     IGameSystemsCreator gameSystem;
 
-    public GameInitializer() {
-        if (GameFields.systemType == GameType.G2D) {
+    public ClientGameInitializer() {
+        if (ClientGameFields.systemType == GameType.G2D) {
             gameSystem = new G2dGameSystems();
             new G2dEntites();
         } else {
