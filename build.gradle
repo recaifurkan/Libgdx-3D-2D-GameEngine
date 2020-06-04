@@ -40,7 +40,7 @@ allprojects {
     }
 }
 
-project(":desktop") {
+project(":client-desktop") {
     apply plugin: "java-library"
 
 

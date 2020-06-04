@@ -38,4 +38,4 @@ task dist(type: Jar) {
 
 dist.dependsOn classes
 
-eclipse.project.name = appName + "-desktop"
+eclipse.project.name = appName + "-client-desktop"
