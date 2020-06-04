@@ -61,6 +61,27 @@ project(":desktop") {
     }
 }
 
+project(":test-desktop") {
+    apply plugin: "java-library"
+
+
+    dependencies {
+
+        api project(":core")
+
+        api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        api "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-desktop"
+        api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+        api "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
+        api "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
+        api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+        api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+
+
+    }
+}
+
 project(":android") {
     apply plugin: "android"
 
@@ -106,7 +127,7 @@ project(":ios") {
 
 
     dependencies {
-        implementation project(":core")
+        api project(":client-core")
         api "com.mobidevelop.robovm:robovm-rt:$roboVMVersion"
         api "com.mobidevelop.robovm:robovm-cocoatouch:$roboVMVersion"
         api "com.badlogicgames.gdx:gdx-backend-robovm:$gdxVersion"

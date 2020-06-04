@@ -10,7 +10,7 @@ import com.rfbsoft.Settings;
 import com.rfbsoft.assets.Assets;
 import com.rfbsoft.game.GameFields;
 import com.rfbsoft.game.ServerGameInitializer;
-import com.rfbsoft.game.GameInput;
+import com.rfbsoft.game.ServerGameInput;
 
 public class GameScreen implements Screen {
     private static final String TAG = "com.rfbsoft.factories.EntityFactory";
@@ -30,7 +30,7 @@ public class GameScreen implements Screen {
         systems = new ServerGameInitializer();
 
 
-        GameInput gameInput = new GameInput();
+        ServerGameInput gameInput = new ServerGameInput();
         Gdx.input.setInputProcessor(new InputMultiplexer(gameInput
 
 //                , GameFields.camController
