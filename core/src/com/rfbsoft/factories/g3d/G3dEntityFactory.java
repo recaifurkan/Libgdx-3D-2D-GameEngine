@@ -43,18 +43,18 @@ public class G3dEntityFactory implements IEntityFactory {
         vector.set(0, 0, 0);
         instance.transform.setTranslation(vector);
         btCollisionShape collisionShape = Bullet.obtainStaticNodeShape(model.nodes);
-        btStaticPlaneShape btStaticPlaneShape = new btStaticPlaneShape(Vector3.Y,1);
-        btCompoundShape compoundShape = new btCompoundShape();
-        compoundShape.addChildShape(instance.transform,btStaticPlaneShape);
+//        btStaticPlaneShape btStaticPlaneShape = new btStaticPlaneShape(Vector3.Y,1);
+//        btCompoundShape compoundShape = new btCompoundShape();
+//        compoundShape.addChildShape(instance.transform,btStaticPlaneShape);
 //        compoundShape.addChildShape(instance.transform,collisionShape);
 
 
         Matrix4 collisionShapeTransform = ObjectAllocator.getMatrix4();
         collisionShapeTransform.set(instance.transform);
-        ModelledBulletStaticInitializer modelledBulletStaticInitializer = new ModelledBulletStaticInitializer(instance, compoundShape, collisionShapeTransform);
+        ModelledBulletStaticInitializer modelledBulletStaticInitializer = new ModelledBulletStaticInitializer(instance, collisionShape, collisionShapeTransform);
 //        collisionShapeTransform.rotate(Vector3.X, -90);
-        GameEntity terrainObject = new GameEntity("Terrain",
-                ,
+        GameEntity terrainObject = new GameEntity("Terrain"
+                ,modelledBulletStaticInitializer,
                 new PathFindInitiliazer(navMesh)
         );
 
