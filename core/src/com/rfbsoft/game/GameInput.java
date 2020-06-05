@@ -25,7 +25,7 @@ public class GameInput implements InputProcessor {
         MouseEventObject object = new MouseEventObject(screenX, screenY, pointer, button);
 
         MessageManager.getInstance().dispatchMessage(GameMessages.MOUSEEVENT, object);
-        return true;
+        return false;
     }
 
     @Override

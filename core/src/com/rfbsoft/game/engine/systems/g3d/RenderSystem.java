@@ -31,12 +31,12 @@ public class RenderSystem extends EntitySystem implements Disposable {
         Camera cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         cam.position.set(0f, 12f, 35f);
-        cam.lookAt(0, 0, 0);
+//        cam.lookAt(0, 0, 0);
         cam.near = 1f;
         cam.far = 3000f;
         cam.update();
 
-        Init.initCamController(cam);
+
         GameFields.cam = cam;
 
     }
@@ -48,7 +48,7 @@ public class RenderSystem extends EntitySystem implements Disposable {
     @Override
     public void update(float deltaTime) {
 
-        GameFields.camController.update();
+
         GameFields.modelBatch.begin(GameFields.cam);
         for (Entity entity : entities) {
             ModelComponent modelComponent = modelMapper.get(entity);

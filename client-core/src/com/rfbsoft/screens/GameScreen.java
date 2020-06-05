@@ -30,10 +30,9 @@ public class GameScreen implements Screen {
 
 
         ClientGameInput gameInput = new ClientGameInput();
-        Gdx.input.setInputProcessor(new InputMultiplexer(gameInput
-
-//                , GameFields.camController
-        ));
+        InputMultiplexer inputMultiplexer = new InputMultiplexer(gameInput);
+        if(GameFields.systemType == GameFields.GameType.G3D && GameFields.camController != null)inputMultiplexer.addProcessor(GameFields.camController);
+        Gdx.input.setInputProcessor(inputMultiplexer);
 
 
     }

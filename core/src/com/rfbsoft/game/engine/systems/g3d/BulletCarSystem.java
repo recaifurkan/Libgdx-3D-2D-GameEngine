@@ -17,7 +17,7 @@ public class BulletCarSystem extends EntitySystem implements EntityListener {
             ComponentMapper.getFor(CarComponent.class);
     private final ComponentMapper<ModelComponent> modelMapper =
             ComponentMapper.getFor(ModelComponent.class);
-    float maxForce = 200f;
+    float maxForce = 300f;
     float currentForce = 0f;
     float acceleration = 50f; // force/second
     float maxAngle = 40f;

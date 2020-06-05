@@ -2,6 +2,7 @@ package com.rfbsoft.game.engine.systems.g3d;
 
 import com.rfbsoft.game.GameFields;
 import com.rfbsoft.game.engine.systems.AiMessageSystem;
+import com.rfbsoft.game.engine.systems.CameraInputSystem;
 import com.rfbsoft.game.engine.systems.IGameSystemsCreator;
 import com.rfbsoft.game.engine.systems.PlayerAddSystem;
 import com.rfbsoft.game.engine.systems.g3d.debug.DebugBulletSystem;
@@ -23,6 +24,7 @@ public class G3dGameSystems implements IGameSystemsCreator {
     DebugBulletSystem bulletDebugSystem = new DebugBulletSystem();
     AiMessageSystem aiMessageSystem = new AiMessageSystem();
     BulletPositionSystem bulletPositionSystem = new BulletPositionSystem();
+    CameraInputSystem cameraInputSystem = new CameraInputSystem();
 
     public G3dGameSystems() {
         init();
@@ -43,7 +45,9 @@ public class G3dGameSystems implements IGameSystemsCreator {
                 bulletCarSystem,
 
                 aiMessageSystem,
-                bulletPositionSystem
+                bulletPositionSystem,
+                cameraInputSystem
+
         );
         if (GameFields.DEBUG)
             GameFields.gameEngine.addSystems(

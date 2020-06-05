@@ -19,7 +19,7 @@ public class PlayerAddSystem extends EntitySystem implements Telegraph {
     private static final String TAG = "com.rfbsoft.game.engine.systems.PlayerAddSystem";
 
 
-    final int SPAWNLIMIT = 0;
+    final int SPAWNLIMIT = 10;
     float spawnTime = 0.1f;
     float currentTime = 0;
     int index = 1;
@@ -33,12 +33,14 @@ public class PlayerAddSystem extends EntitySystem implements Telegraph {
         currentTime += deltaTime;
         if (currentTime > spawnTime) {
 //            GameFields.gameEngine.addEntity(EntityFactory.createPlayer());
-            GameFields.gameEngine.addEntity(G3dEntityFactory.createCharacter());
+            GameFields.gameEngine.addEntity(G3dEntityFactory.createPlayer());
             currentTime = 0;
             index++;
         }
-        if (index > SPAWNLIMIT)
+        if (index > SPAWNLIMIT){
             this.setProcessing(false);
+        }
+//
 
     }
 

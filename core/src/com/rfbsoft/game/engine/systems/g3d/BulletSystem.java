@@ -102,7 +102,7 @@ public class BulletSystem extends EntitySystem implements EntityListener, Telegr
 
         if (msg.message == GameMessages.MOUSEEVENT) {
             GameInput.MouseEventObject mouseEvent = (GameInput.MouseEventObject) msg.extraInfo;
-            Gdx.app.debug(TAG,String.format("Clicked Button = " , mouseEvent.button));
+            Gdx.app.debug(TAG,String.format("Clicked Button = %d" , mouseEvent.button));
             if (mouseEvent.button == Input.Buttons.RIGHT) rayRequest = RayRequest.REQUESTED;
             if (rayRequest == RayRequest.REQUESTED) {
                 if (ray(mouseEvent.screenX, mouseEvent.screenY) != null)

@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
+import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.rfbsoft.assets.loaders.NavMeshLoader;
 import com.rfbsoft.assets.loaders.TextFileLoader;
 import com.rfbsoft.game.engine.GameEngine;
@@ -64,7 +65,5 @@ public class GameFields {
     public enum GameType {
         G2D,
         G3D
-
-
     }
 }

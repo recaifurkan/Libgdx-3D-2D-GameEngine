@@ -12,9 +12,7 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.Bullet;
-import com.badlogic.gdx.physics.bullet.collision.btBoxShape;
-import com.badlogic.gdx.physics.bullet.collision.btCollisionShape;
-import com.badlogic.gdx.physics.bullet.collision.btSphereShape;
+import com.badlogic.gdx.physics.bullet.collision.*;
 import com.rfbsoft.assets.Assets;
 import com.rfbsoft.factories.IEntityFactory;
 import com.rfbsoft.factories.g3d.character.Character;
@@ -45,13 +43,18 @@ public class G3dEntityFactory implements IEntityFactory {
         vector.set(0, 0, 0);
         instance.transform.setTranslation(vector);
         btCollisionShape collisionShape = Bullet.obtainStaticNodeShape(model.nodes);
+        btStaticPlaneShape btStaticPlaneShape = new btStaticPlaneShape(Vector3.Y,1);
+        btCompoundShape compoundShape = new btCompoundShape();
+        compoundShape.addChildShape(instance.transform,btStaticPlaneShape);
+//        compoundShape.addChildShape(instance.transform,collisionShape);
 
 
         Matrix4 collisionShapeTransform = ObjectAllocator.getMatrix4();
         collisionShapeTransform.set(instance.transform);
+        ModelledBulletStaticInitializer modelledBulletStaticInitializer = new ModelledBulletStaticInitializer(instance, compoundShape, collisionShapeTransform);
 //        collisionShapeTransform.rotate(Vector3.X, -90);
         GameEntity terrainObject = new GameEntity("Terrain",
-                new ModelledBulletStaticInitializer(instance, collisionShape, collisionShapeTransform),
+                ,
                 new PathFindInitiliazer(navMesh)
         );
 
