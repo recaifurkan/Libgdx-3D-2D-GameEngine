@@ -22,7 +22,9 @@ import java.util.PriorityQueue;
 
 public class NodeQueue {
 
-    private final PriorityQueue<Node> m_heap = new PriorityQueue<>((n1, n2) -> Float.compare(n1.total, n2.total));
+//    (n1, n2) -> Float.compare(n1.total, n2.total)
+
+    private final PriorityQueue<Node> m_heap = new PriorityQueue<>();
 
     public void clear() {
         m_heap.clear();

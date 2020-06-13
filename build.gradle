@@ -149,8 +149,10 @@ project(":core") {
         // https://mvnrepository.com/artifact/org.recast4j/recast
 //        api group: 'org.recast4j', name: 'recast', version: '1.2.5'
 
-        // https://mvnrepository.com/artifact/org.recast4j/detour
-        api group: 'org.recast4j', name: 'detour', version: '1.2.5'
+//        // https://mvnrepository.com/artifact/org.recast4j/detour
+//        api group: 'org.recast4j', name: 'detour', version: '1.2.5'
+
+        api fileTree(dir: '../3rdparty/recast4j-master/out/artifacts/detour_jar', include: ['*.jar'])
 
 
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
