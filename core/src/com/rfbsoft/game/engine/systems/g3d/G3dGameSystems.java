@@ -25,6 +25,7 @@ public class G3dGameSystems implements IGameSystemsCreator {
     AiMessageSystem aiMessageSystem = new AiMessageSystem();
     BulletPositionSystem bulletPositionSystem = new BulletPositionSystem();
     CameraInputSystem cameraInputSystem = new CameraInputSystem();
+    MinimapSystem minimapSystem = new MinimapSystem();
 
     public G3dGameSystems() {
         init();
@@ -46,7 +47,8 @@ public class G3dGameSystems implements IGameSystemsCreator {
 
                 aiMessageSystem,
                 bulletPositionSystem,
-                cameraInputSystem
+                cameraInputSystem,
+                minimapSystem
 
         );
         if (GameFields.DEBUG)
