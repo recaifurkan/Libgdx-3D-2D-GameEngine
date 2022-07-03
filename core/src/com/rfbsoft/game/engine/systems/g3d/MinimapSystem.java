@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.rfbsoft.game.engine.components.g3d.BulletRigidBodyComponent;
 import com.rfbsoft.game.engine.components.g3d.ModelComponent;
+import com.rfbsoft.game.engine.entites.G3dEntites;
 import com.rfbsoft.utils.ObjectAllocator;
 
 public class MinimapSystem extends EntitySystem {
@@ -46,10 +47,15 @@ public class MinimapSystem extends EntitySystem {
         shape.begin(ShapeRenderer.ShapeType.Filled);
         for (Entity entity : entities) {
             BulletRigidBodyComponent bulletRigidBodyComponent = rigidBodyMapper.get(entity);
+
             Matrix4 worldTransform = bulletRigidBodyComponent.rigidBody.getWorldTransform();
             Vector3 position = ObjectAllocator.getVector3();
             position = worldTransform.getTranslation(position);
-            shape.setColor(Color.CYAN);
+            if (G3dEntites.car.getComponent(BulletRigidBodyComponent.class).equals(bulletRigidBodyComponent)) {
+                shape.setColor(Color.CYAN);
+            } else {
+                shape.setColor(Color.RED);
+            }
             shape.rect(100 + position.x, 100 + position.z, 5, 5);
         }
 
