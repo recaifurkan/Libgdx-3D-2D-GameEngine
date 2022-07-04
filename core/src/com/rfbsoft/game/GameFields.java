@@ -1,17 +1,17 @@
 package com.rfbsoft.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
-import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.rfbsoft.assets.loaders.NavMeshLoader;
 import com.rfbsoft.assets.loaders.TextFileLoader;
 import com.rfbsoft.game.engine.GameEngine;
@@ -30,7 +30,14 @@ public class GameFields {
     public static Environment environment;
     public static GameType systemType = GameType.G3D;
 
+    public static InputMultiplexer inputMultiplexer;
+    public static Stage stage;
+
     static {
+
+        stage = new Stage();
+
+        inputMultiplexer = new InputMultiplexer();
 
         GameFields.modelBatch = new ModelBatch();
 

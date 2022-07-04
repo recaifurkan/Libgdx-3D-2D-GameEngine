@@ -31,8 +31,10 @@ public class GameScreen implements Screen {
 
 
         ServerGameInput gameInput = new ServerGameInput();
-        InputMultiplexer inputMultiplexer = new InputMultiplexer(gameInput);
-        if(GameFields.systemType == GameFields.GameType.G3D)inputMultiplexer.addProcessor(GameFields.camController);
+        InputMultiplexer inputMultiplexer = GameFields.inputMultiplexer;
+        inputMultiplexer.addProcessor(GameFields.stage);
+        inputMultiplexer.addProcessor(gameInput);
+        if (GameFields.systemType == GameFields.GameType.G3D) inputMultiplexer.addProcessor(GameFields.camController);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
 

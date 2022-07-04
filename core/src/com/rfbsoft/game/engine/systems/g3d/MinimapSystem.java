@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.rfbsoft.game.GameFields;
 import com.rfbsoft.game.engine.components.g3d.BulletRigidBodyComponent;
 import com.rfbsoft.game.engine.components.g3d.ModelComponent;
 import com.rfbsoft.game.engine.entites.G3dEntites;
@@ -25,12 +25,11 @@ public class MinimapSystem extends EntitySystem {
 
 
     private final ShapeRenderer shape;
-    private final Stage stage;
 
     public MinimapSystem() {
         shape = new ShapeRenderer();
-        stage = new Stage();
-        stage.setDebugAll(true);
+
+        GameFields.stage.setDebugAll(true);
     }
 
 
@@ -41,9 +40,9 @@ public class MinimapSystem extends EntitySystem {
     @Override
     public void update(float deltaTime) {
 
-        stage.draw();
+        GameFields.stage.draw();
 
-        shape.setProjectionMatrix(stage.getCamera().combined);
+        shape.setProjectionMatrix(GameFields.stage.getCamera().combined);
         shape.begin(ShapeRenderer.ShapeType.Filled);
         for (Entity entity : entities) {
             BulletRigidBodyComponent bulletRigidBodyComponent = rigidBodyMapper.get(entity);
@@ -61,7 +60,7 @@ public class MinimapSystem extends EntitySystem {
 
         shape.end();
 
-        shape.setProjectionMatrix(stage.getCamera().combined);
+        shape.setProjectionMatrix(GameFields.stage.getCamera().combined);
         shape.begin(ShapeRenderer.ShapeType.Line);
         shape.setColor(Color.YELLOW);
         shape.rect(0, 0, 200, 200);

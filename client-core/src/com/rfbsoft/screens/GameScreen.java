@@ -8,9 +8,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.physics.bullet.Bullet;
 import com.rfbsoft.Settings;
 import com.rfbsoft.assets.Assets;
-import com.rfbsoft.game.GameFields;
 import com.rfbsoft.game.ClientGameInitializer;
 import com.rfbsoft.game.ClientGameInput;
+import com.rfbsoft.game.GameFields;
 
 public class GameScreen implements Screen {
     private static final String TAG = "com.rfbsoft.factories.EntityFactory";
@@ -31,6 +31,7 @@ public class GameScreen implements Screen {
 
         ClientGameInput gameInput = new ClientGameInput();
         InputMultiplexer inputMultiplexer = new InputMultiplexer(gameInput);
+        inputMultiplexer.addProcessor(GameFields.stage);
         if(GameFields.systemType == GameFields.GameType.G3D && GameFields.camController != null)inputMultiplexer.addProcessor(GameFields.camController);
         Gdx.input.setInputProcessor(inputMultiplexer);
 

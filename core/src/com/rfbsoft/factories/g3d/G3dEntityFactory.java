@@ -2,6 +2,8 @@ package com.rfbsoft.factories.g3d;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
@@ -12,11 +14,15 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.bullet.Bullet;
-import com.badlogic.gdx.physics.bullet.collision.*;
+import com.badlogic.gdx.physics.bullet.collision.btBoxShape;
+import com.badlogic.gdx.physics.bullet.collision.btCollisionShape;
+import com.badlogic.gdx.physics.bullet.collision.btSphereShape;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.rfbsoft.assets.Assets;
 import com.rfbsoft.factories.IEntityFactory;
 import com.rfbsoft.factories.g3d.character.Character;
 import com.rfbsoft.game.engine.components.g3d.BulletRigidBodyComponent;
+import com.rfbsoft.game.engine.components.g3d.MinimapFlagComponent;
 import com.rfbsoft.game.engine.entites.G3dEntites;
 import com.rfbsoft.game.engine.entites.GameEntity;
 import com.rfbsoft.game.engine.entites.initializers.g3d.ModelledBulletDynamicInitializer;
@@ -109,6 +115,7 @@ public class G3dEntityFactory implements IEntityFactory {
                 }
             }
         };
+        player.add(new MinimapFlagComponent(new Image(createTexture(5, 5, Color.CYAN, 1))));
         return player;
     }
 
@@ -151,7 +158,7 @@ public class G3dEntityFactory implements IEntityFactory {
         btCollisionShape shape = BulletUtils.modelToCapsuleShape(model);
         Character character = new Character(instance, shape);
         character.setName("Animated - " + characterIndex++);
-
+        character.add(new MinimapFlagComponent(new Image(createTexture(5, 5, Color.GREEN, 1))));
         return character;
     }
 
@@ -167,11 +174,23 @@ public class G3dEntityFactory implements IEntityFactory {
         return character;
     }
 
+    public static Texture createTexture(int width, int height, Color col,
+                                        float alfa) {
+        Pixmap pixmap = new Pixmap(width, height, Pixmap.Format.RGBA8888);
+        Color color = col;
+        pixmap.setColor(color.r, color.g, color.b, alfa);
+        pixmap.fillRectangle(0, 0, width, height);
+
+        Texture pixmaptexture = new Texture(pixmap);
+        return pixmaptexture;
+    }
+
     public static GameEntity createCar() {
         Model carModel = Assets.carModel.get();
         Model wheelModel = Assets.wheelModel.get();
         BulletCarInitializer carInitializer = new BulletCarInitializer(carModel, wheelModel);
         GameEntity car = new GameEntity("Car", carInitializer);
+        car.add(new MinimapFlagComponent(new Image(createTexture(5, 5, Color.BLACK, 1))));
         return car;
 
 
