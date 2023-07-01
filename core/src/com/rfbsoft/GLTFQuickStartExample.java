@@ -89,7 +89,7 @@ public class GLTFQuickStartExample extends ApplicationAdapter {
         //camera.position.set(0, 0, 2);
         //camera.up.set(Vector3.Y);
         //camera.lookAt(Vector3.Zero);
-        //camera.update();
+        //
         scene.animationController.update(deltaTime);
         scene.modelInstance.transform.setToTranslation(0, 0, 0);
 
@@ -98,7 +98,8 @@ public class GLTFQuickStartExample extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
         sceneManager.update(deltaTime);
         sceneManager.render();
-        firstPersonCameraController.update();
+        camera.position.mulAdd(camera.direction , deltaTime * 10);
+        firstPersonCameraController.update(deltaTime);
     }
 
     @Override
