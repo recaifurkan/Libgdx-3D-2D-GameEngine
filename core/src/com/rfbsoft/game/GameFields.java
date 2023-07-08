@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.rfbsoft.assets.loaders.NavMeshLoader;
 import com.rfbsoft.assets.loaders.TextFileLoader;
 import com.rfbsoft.game.engine.GameEngine;
@@ -35,7 +36,7 @@ public class GameFields {
 
     static {
 
-        stage = new Stage();
+        stage = new Stage(new ScreenViewport());
 
         inputMultiplexer = new InputMultiplexer();
 
