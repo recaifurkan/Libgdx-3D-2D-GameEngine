@@ -3,6 +3,7 @@ package com.rfbsoft.game.desktop;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.rfbsoft.GLTFQuickStartExample;
+import com.rfbsoft.main.Root;
 
 public class DesktopLauncher {
     public static void main(String[] arg) {
@@ -11,6 +12,6 @@ public class DesktopLauncher {
         config.width = 960;
         config.height = 540;
         GLTFQuickStartExample gltfQuickStartExample = new GLTFQuickStartExample();
-        new LwjglApplication(gltfQuickStartExample, config);
+        new LwjglApplication(new Root(), config);
     }
 }

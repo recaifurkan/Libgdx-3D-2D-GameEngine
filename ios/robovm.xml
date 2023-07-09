@@ -36,6 +36,9 @@
     <libs>
         <lib>z</lib>
     </libs>
+    <frameworkPaths>
+        <path>libs_simulator</path>
+    </frameworkPaths>
     <frameworks>
         <framework>UIKit</framework>
         <framework>OpenGLES</framework>
@@ -44,5 +47,10 @@
         <framework>OpenAL</framework>
         <framework>AudioToolbox</framework>
         <framework>AVFoundation</framework>
+        <framework>GoogleAppMeasurement</framework>
+        <framework>GoogleMobileAds</framework>
+        <framework>GoogleUtilities</framework>
+        <framework>nanopb</framework>
+        <framework>FBLPromises</framework>
     </frameworks>
 </config>

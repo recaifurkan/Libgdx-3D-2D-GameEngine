@@ -13,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.rfbsoft.Settings;
+import com.rfbsoft.ads.AdsProcessor;
+import com.rfbsoft.ads.AdsProcessorAdaptor;
 import com.rfbsoft.assets.Assets;
 import com.rfbsoft.game.ClientGameInitializer;
 import com.rfbsoft.game.ClientGameInput;
@@ -21,6 +23,12 @@ import com.rfbsoft.game.ui.AnimatedImageButton;
 
 public class GameScreen implements Screen {
     private static final String TAG = "com.rfbsoft.factories.EntityFactory";
+
+    private final AdsProcessor adsProcessor;
+
+    public GameScreen(AdsProcessor adsProcessor) {
+        this.adsProcessor = adsProcessor == null ? new AdsProcessorAdaptor() : adsProcessor;
+    }
 
     private UITest uiTest;
 
@@ -134,6 +142,42 @@ public class GameScreen implements Screen {
             Button imgButton = new Button(new Image(image), skin);
             Button imgToggleButton = new Button(new Image(image), skin, "toggle");
 
+            TextButton adsButton1 = new TextButton("1", skin);
+            adsButton1.addListener(new ChangeListener() {
+                @Override
+                public void changed(ChangeEvent event, Actor actor) {
+                    adsProcessor.loadRewardedInterstitialAd();
+                }
+            });
+            TextButton adsButton2 = new TextButton("2", skin);
+            adsButton2.addListener(new ChangeListener() {
+                @Override
+                public void changed(ChangeEvent event, Actor actor) {
+                    adsProcessor.loadRewardedAd();
+                }
+            });
+            TextButton adsButton3 = new TextButton("3", skin);
+            adsButton3.addListener(new ChangeListener() {
+                @Override
+                public void changed(ChangeEvent event, Actor actor) {
+                    adsProcessor.loadInterstitialAd();
+                }
+            });
+            TextButton adsButton4 = new TextButton("4", skin);
+            adsButton4.addListener(new ChangeListener() {
+                @Override
+                public void changed(ChangeEvent event, Actor actor) {
+                    adsProcessor.loadBannerView();
+                }
+            });
+            TextButton adsButton5 = new TextButton("5", skin);
+            adsButton5.addListener(new ChangeListener() {
+                @Override
+                public void changed(ChangeEvent event, Actor actor) {
+                    adsProcessor.ins5();
+                }
+            });
+
             Label myLabel = new Label("this is some text.", skin);
             myLabel.setWrap(true);
 
@@ -205,6 +249,12 @@ public class GameScreen implements Screen {
             window.add(buttonMulti);
             window.add(imgButton);
             window.add(imgToggleButton);
+            window.row();
+            window.add(adsButton1);
+            window.add(adsButton2);
+            window.add(adsButton3);
+            window.add(adsButton4);
+            window.add(adsButton5);
             window.row();
             window.add(checkBox);
             window.add(slider).minWidth(100).fillX().colspan(3);
