@@ -30,6 +30,7 @@ allprojects {
         ashleyVersion = '1.7.4'
         aiVersion = '1.8.2'
         gltfVersion = '2.1.0'
+        altpodsVersion = '1.31.0-SNAPSHOT'
     }
 
     repositories {
@@ -140,7 +141,6 @@ project(":ios") {
     }
 
     }
-}
 
 project(":core") {
     apply plugin: "java-library"
